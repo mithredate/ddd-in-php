@@ -34,9 +34,10 @@
   },
   "autoload-dev": {
     "classmap": [
-      "tests/"
+      "tests/features"
     ],
     "psr-4": {
+      "Podro\\TMS\\Billing\\": "tests/billing"
     }
   },
   "config": {

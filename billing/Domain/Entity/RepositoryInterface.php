@@ -7,7 +7,12 @@ interface RepositoryInterface
 {
     public function save(AbstractAggregateRoot $aggregateRoot): void;
 
-    public function find($id): AbstractAggregateRoot;
+    /**
+     * @param $id
+     *
+     * @return null|AbstractAggregateRoot
+     */
+    public function find($id): ?AbstractAggregateRoot;
 
     public function beginTransaction(): void;
 
