@@ -2,9 +2,9 @@
 
 namespace App\Providers;
 
+use App\Http\Response\ResponseFactory;
+use App\Http\Response\ResponseFactoryInterface;
 use Illuminate\Support\ServiceProvider;
-use Podro\TMS\Billing\Domain\Entity\Order\Services\OrderRepositoryInterface;
-use Podro\TMS\Billing\Infrastructure\Persistence\Doctrine\Order\OrderRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,6 +15,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(OrderRepositoryInterface::class, OrderRepository::class);
+        $this->app->bind(ResponseFactoryInterface::class, ResponseFactory::class);
     }
 }

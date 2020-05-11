@@ -1,16 +1,12 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It is a breeze. Simply tell Lumen the URIs it should respond to
-| and give it the Closure to call when that URI is requested.
-|
-*/
+/** @var Router $router */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
-});
+use Illuminate\Routing\Router;
+
+$router->group(
+    ['prefix' => 'orders', 'namespace' => 'Order'],
+    function () use ($router) {
+        $router->post('/', ['as' => 'orders.store', 'uses' => 'OrderController@store']);
+    }
+);

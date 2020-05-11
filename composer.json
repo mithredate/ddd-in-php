@@ -14,7 +14,8 @@
     "laravel-doctrine/fluent": "^1.1",
     "laravel-doctrine/migrations": "^2.1",
     "laravel-doctrine/orm": "~1.6.0",
-    "laravel/lumen-framework": "^7.0"
+    "laravel/lumen-framework": "^7.0",
+    "league/fractal": "^0.19.2"
   },
   "require-dev": {
     "roave/security-advisories": "dev-master",
@@ -33,11 +34,13 @@
     }
   },
   "autoload-dev": {
-    "classmap": [
-      "tests/features"
+    "files": [
+      "tests/TestCase.php"
     ],
     "psr-4": {
-      "Podro\\TMS\\Billing\\": "tests/billing"
+      "Podro\\TMS\\Billing\\": "tests/billing",
+      "APP\\": "tests/app",
+      "Podro\\TMS\\Features\\": "tests/features"
     }
   },
   "config": {

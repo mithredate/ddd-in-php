@@ -88,6 +88,7 @@ $app->configure('app');
 */
 
 $app->register(App\Providers\AppServiceProvider::class);
+$app->register(App\Providers\BillingServiceProvider::class);
 $app->register(LaravelDoctrine\ORM\DoctrineServiceProvider::class);
 $app->register(LaravelDoctrine\Migrations\MigrationsServiceProvider::class);
 // $app->register(App\Providers\AuthServiceProvider::class);
