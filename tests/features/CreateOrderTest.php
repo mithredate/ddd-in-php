@@ -7,32 +7,38 @@
 
 namespace Podro\TMS\Features;
 
-use Mockery;
-use Podro\TMS\Billing\Core\Entity\Order\Order;
-use Podro\TMS\Billing\Core\Entity\Order\PurchaserId;
-use Podro\TMS\Billing\Core\Entity\Order\Services\IdGeneratorInterface;
-use Podro\TMS\Billing\Core\Usecase\PlaceOrder\PlaceOrderUsecaseOutputPortInterface;
-use Podro\TMS\Billing\TestCase;
+use PHPUnit\Framework\TestCase;
+use Podro\TMS\Fulfillment\Core\Entity\Order\Package;
 
 class CreateOrderTest extends TestCase
 {
 
-    public function testValidDataShouldReturnTheOrderId()
-    {
-        $order = entity(Order::class)->make(['purchaserId' => new PurchaserId('test')]);
-        $idGeneratorMock = Mockery::mock(
-            IdGeneratorInterface::class,
-            function ($mock) use ($order) {
-                $mock->shouldReceive('generate')->once()->andReturn($order->getId());
-            }
-        );
-        app()->instance(IdGeneratorInterface::class, $idGeneratorMock);
-        $response = $this->call('POST', route('orders.store', []));
+    /**
+     * @var ApplicationRunner
+     */
+    private $application;
 
-        $this->assertEquals(201, $response->status());
-        $presenter = app()->make(PlaceOrderUsecaseOutputPortInterface::class);
-        $expected = $presenter->transform($order);
-        $this->seeJsonContains($expected);
-        $this->entityIsPersisted(Order::class, ['id' => $order->getId()]);
+    /**
+     * @var FakeProviderAPI
+     */
+    private $providerAPI;
+
+
+    private $package;
+
+    protected function setUp(): void
+    {
+        $this->application = new ApplicationRunner();
+        $this->providerAPI = new FakeProviderAPI();
+        $this->package = new Package();
+    }
+
+    public function testNewOrdersFromShipmentShouldBeInInitialState()
+    {
+        $this->providerAPI->providePriceForPackage($this->package);
+        $this->application->placeAnOrderOnForPackage($this->providerAPI, $this->package);
+        $this->providerAPI->hasReceivedPriceQuoteForPackage($this->package);
+        $this->providerAPI->hasReceivedOrderForPackage($this->package);
+        $this->application->showOrderWasPlacedInInitialStateFor($this->providerAPI, $this->package);
     }
 }

@@ -4,13 +4,13 @@ namespace App\Providers;
 
 use App\Http\Controllers\Order\PlaceOrderPresenter;
 use Illuminate\Support\ServiceProvider;
-use Podro\TMS\Billing\Core\Entity\Order\Services\IdGeneratorInterface;
-use Podro\TMS\Billing\Core\Entity\Order\Services\OrderRepositoryInterface;
-use Podro\TMS\Billing\Core\Usecase\PlaceOrder\PlaceOrderUsecaseInputPortInterface;
-use Podro\TMS\Billing\Core\Usecase\PlaceOrder\PlaceOrderUsecaseInteractor;
-use Podro\TMS\Billing\Core\Usecase\PlaceOrder\PlaceOrderUsecaseOutputPortInterface;
-use Podro\TMS\Billing\Gateways\Doctrine\Order\OrderRepository;
-use Podro\TMS\Billing\Infrastructure\Services\Order\IdGenerator;
+use Podro\TMS\Fulfillment\Core\Entity\Order\Services\IdGeneratorInterface;
+use Podro\TMS\Fulfillment\Core\Entity\Order\Services\OrderRepositoryInterface;
+use Podro\TMS\Fulfillment\Core\Usecase\PlaceOrder\PlaceOrderUsecaseInputPortInterface;
+use Podro\TMS\Fulfillment\Core\Usecase\PlaceOrder\PlaceOrderUsecaseInteractor;
+use Podro\TMS\Fulfillment\Core\Usecase\PlaceOrder\PlaceOrderUsecaseOutputPortInterface;
+use Podro\TMS\Fulfillment\Gateways\Doctrine\Order\OrderRepository;
+use Podro\TMS\Fulfillment\Infrastructure\Services\Order\IdGenerator;
 
 class BillingServiceProvider extends ServiceProvider
 {

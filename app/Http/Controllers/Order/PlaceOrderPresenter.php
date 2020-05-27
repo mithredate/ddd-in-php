@@ -9,8 +9,8 @@ namespace App\Http\Controllers\Order;
 
 use App\Http\Controllers\AbstractPresenter;
 use App\Http\Transformers\OrderTransformer;
-use Podro\TMS\Billing\Core\Entity\Order\Order;
-use Podro\TMS\Billing\Core\Usecase\PlaceOrder\PlaceOrderUsecaseOutputPortInterface;
+use Podro\TMS\Fulfillment\Core\Entity\Order\Order;
+use Podro\TMS\Fulfillment\Core\Usecase\PlaceOrder\PlaceOrderUsecaseOutputPortInterface;
 
 class PlaceOrderPresenter extends AbstractPresenter implements PlaceOrderUsecaseOutputPortInterface
 {

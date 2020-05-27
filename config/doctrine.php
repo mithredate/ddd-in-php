@@ -1,7 +1,7 @@
 <?php
 
-use Podro\TMS\Billing\Infrastructure\Persistence\Doctrine\Order\OrderMapping;
-use Podro\TMS\Billing\Infrastructure\Persistence\Doctrine\Types\IdentityType;
+use Podro\TMS\Fulfillment\Infrastructure\Persistence\Doctrine\Order\OrderMapping;
+use Podro\TMS\Fulfillment\Infrastructure\Persistence\Doctrine\Types\IdentityType;
 
 return [
 

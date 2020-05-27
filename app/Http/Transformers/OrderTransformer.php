@@ -8,7 +8,7 @@
 namespace App\Http\Transformers;
 
 use League\Fractal\TransformerAbstract;
-use Podro\TMS\Billing\Core\Entity\Order\Order;
+use Podro\TMS\Fulfillment\Core\Entity\Order\Order;
 
 class OrderTransformer extends TransformerAbstract
 {

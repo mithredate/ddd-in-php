@@ -10,8 +10,8 @@ namespace App\Http\Controllers\Order;
 use App\Http\Response\ResponseFactoryInterface;
 use Illuminate\Http\JsonResponse;
 use Mockery;
-use Podro\TMS\Billing\Core\Usecase\PlaceOrder\PlaceOrderUsecaseInputPortInterface;
-use Podro\TMS\Billing\TestCase;
+use Podro\TMS\Fulfillment\Core\Usecase\PlaceOrder\PlaceOrderUsecaseInputPortInterface;
+use Podro\TMS\Fulfillment\TestCase;
 
 class OrderControllerTest extends TestCase
 {

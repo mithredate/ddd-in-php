@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Http\Response\ResponseFactory;
+use App\Http\Response\HttpResponseFactory;
 use App\Http\Response\ResponseFactoryInterface;
 use Illuminate\Support\ServiceProvider;
 
@@ -15,6 +15,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(ResponseFactoryInterface::class, ResponseFactory::class);
+        $this->app->bind(ResponseFactoryInterface::class, HttpResponseFactory::class);
     }
 }
